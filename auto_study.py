@@ -55,7 +55,8 @@ class auto_study:
         if first_time:
             generate_cookies()
         self.driver.get('https://ke.qq.com')
-        with open('ketang_cookies.json', 'r', encoding='utf-8') as f:
+        cookies_path = os.path.abspath('ketang_cookies.json')
+        with open(cookies_path, 'r') as f:
             listCookies = json.loads(f.read())
         for cookie in listCookies:
             self.driver.add_cookie({
