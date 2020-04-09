@@ -69,7 +69,11 @@ class auto_study:
             })
 
     def study(self,course_name :str = '棒/垒球-1-李江华',course_time_by_minute :int = 90):
-
+        '''
+        进入指定的课堂
+        :param course_name 课程名称
+        :param course_time_by_minut
+        '''
         #进入到课程表页面
         self.login(False)
         self.driver.find_element_by_xpath('//*[@id="js-intrest-select"]/div[2]/div/a[1]').click()
@@ -96,13 +100,21 @@ class auto_study:
 
         time.sleep(int(course_time_by_minute)*60)
         self.quit()
+
+    def direct_study(self,course_time_by_minute :int = 90):
+        '''
+        直接进入目前正在直播的课程，等待指定时长后退出浏览器
+        :param course_time_by_minute: 课程时长
+        :return: 
+        '''
+        self.login(False)
+        self.driver.find_element_by_xpath('//*[@id="js-intrest-select"]/div[2]/div/a[1]').click()
+        try:
+            self.driver.find_element_by_xpath('/html/body/section[1]/div/div/div/div/div/a').click()
+            time.sleep(course_time_by_minute*60)
+        except:
+            print("目前没有正在直播的课程")
+        self.quit()
+ 
     def quit(self):
         self.driver.quit()
-if __name__ == '__main__':
-
-
-
-    slc = auto_dont_study()
-    slc.login(False)
-    slc.study(course_name='经贸研究与论文写作-2-谢红军',course_time_by_minute=90)
-    slc.quit()

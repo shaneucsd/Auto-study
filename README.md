@@ -25,13 +25,22 @@ study = auto_study()
 study.login(first_time=True)
 study.quit()
 ```
+### 3.2自动进入最近一节课的直播
+运行direct_study函数
+```
+study = auto_study()
+study.login(False)
+study.direct_study()
+```
+### 3.3自动开始一节课的学习
 
-### 3.2自动开始一节课的学习
+TODO:需要修改课程切换的bug，在同一个页面不能切换到指定课程的界面
+<br>
 1.新建该目录下新建一个python文件,如 essay_study.py
     2.在腾讯课堂中记录课程名字(腾讯课堂显示的名字），传入coursename参数
     3.将课程时间（分钟）传入course_time_by_minute参数
     4.每次开始学习一节课就按上述方法创建一个python文件
-    
+   
 ```
 #essay_study内容
 from auto_study import auto_study
@@ -40,10 +49,10 @@ study.login()
 study.study(course_name='经贸研究与论文写作-2-谢红军',course_time_by_minute=90)
 ```
     
-### 3.3定时开始一节课
+### 3.4定时开始一节课
 
 你须是**mac/linux**系统才能用这个命令
-#### 3.3.1制作定时命令
+#### 3.4.1制作定时命令
 1. 制作定时命令的时间部分 格式如下
      分钟 小时 * * 周几 
      <br>e.g:
@@ -63,7 +72,7 @@ study.study(course_name='经贸研究与论文写作-2-谢红军',course_time_by
     <br>e.g:
     ```59 8 * * 1 /usr/bin/python /usr/Ciwei/essay_study.py```
     
-#### 3.3.2在crontab中配置这个定时命令
+#### 3.4.2在crontab中配置这个定时命令
 
 * 在Terminal中输入
 ```crontab -e```
