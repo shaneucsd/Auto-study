@@ -42,8 +42,8 @@ study.study(course_name='经贸研究与论文写作-2-谢红军',course_time_by
     
 ### 3.3定时开始一节课
 
-你须是mac/linux系统才能用这个命令
-#### 制作定时命令
+你须是**mac/linux**系统才能用这个命令
+#### 3.3.1制作定时命令
 1. 制作定时命令的时间部分 格式如下
      分钟 小时 * * 周几 
      <br>e.g:
@@ -63,7 +63,7 @@ study.study(course_name='经贸研究与论文写作-2-谢红军',course_time_by
     <br>e.g:
     ```59 8 * * 1 /usr/bin/python /usr/Ciwei/essay_study.py```
     
-#### 在crontab中配置这个定时命令
+#### 3.3.2在crontab中配置这个定时命令
 
 * 在Terminal中输入
 ```crontab -e```
